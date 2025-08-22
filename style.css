@@ -23,8 +23,8 @@ to this section's matching END comment to see page-specific styles.
   --wrapper-height: 87vh;
   --image-max-width: 250px;
   --image-margin: 3rem;
-  --font-family: "HK Grotesk";
-  --font-family-header: "HK Grotesk";
+  --font-family: "Hanken Grotesk", sans-serif;
+  --font-family-header: "Hanken Grotesk", sans-serif;
 }
 
 /* Basic page style resets */
@@ -39,24 +39,11 @@ body {
   background: fixed linear-gradient(0deg, var(--color-bg), #FFFFFF);
 }
 
-/* Import fonts */
-@font-face {
-  font-family: HK Grotesk;
-  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027")
-    format("opentype");
-}
-@font-face {
-  font-family: HK Grotesk;
-  font-weight: bold;
-  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
-    format("opentype");
-}
-
 /* Our remix on glitch button */
 .btn--remix {
-  font-family: HK Grotesk;
+  font-family: var(--font-family);
   padding: 0.75rem 1rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1rem;
   font-weight: 500;
   height: 2.75rem;
@@ -103,7 +90,7 @@ END Glitch hello-app default styles
 ******************************************************************************/
 
 body {
-  font-family: HK Grotesk;
+  font-family: var(--font-family);
   background-color: var(--color-bg);
 }
 
@@ -129,9 +116,9 @@ body {
 /* Very light scaling for our illustration */
 .title {
   color: var(--color-text-header);
-  font-family: HK Grotesk;
+  font-family: var(--font-family);
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 60px;
   line-height: 105%;
   margin: 2rem 0 0 0;
@@ -140,9 +127,9 @@ body {
 }
 
 .subtitle {
-  font-family: HK Grotesk;
+  font-family: var(--font-family);
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 20px;
   line-height: 105%;
   text-align: center;
@@ -342,4 +329,9 @@ h2 {
 
 .newsletter-link:hover {
   text-decoration-color: var(--color-primary); /* Only underline changes to yellow */
+}
+
+/* Ensure proper bold rendering for strong elements */
+strong {
+  font-weight: 600;
 }
