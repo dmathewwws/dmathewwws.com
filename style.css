@@ -162,8 +162,18 @@ h2 {
   transform: translateY(5px);
 }
 
+/* Apps Section */
+.apps-section {
+  margin: 0 1rem auto 0;
+}
+
 /* Instructions */
 .instructions {
+  margin: 1rem 1rem auto 0;
+}
+
+/* Meetups Section */
+.meetups-section {
   margin: 0 1rem auto 0;
 }
 
@@ -298,8 +308,8 @@ h2 {
 }
 
 .post-list img {
-  width: 85px;  /* Increased width for rectangular shape */
-  height: 48px;  /* Kept original height */
+  width: 169px;  /* Increased width for rectangular shape */
+  height: 95px;  /* Kept original height */
   margin-right: 1rem;
   border-radius: 4px;
   object-fit: cover;  /* Added to ensure images cover the area nicely */
@@ -310,9 +320,103 @@ h2 {
   font-size: 1rem;
 }
 
+.post-list .post-date {
+  display: block;
+  color: #6b6b6b;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+
+/* YouTube video indicator styles */
+.post-list.youtube-video li {
+  position: relative;
+}
+
+.post-list.youtube-video .video-icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.post-list.youtube-video .video-icon {
+  position: absolute;
+  bottom: 0px;
+  right: 8px;
+  width: 25px;
+  height: 20px;
+  background-color: rgba(255, 0, 0, 0.8);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.post-list.youtube-video .video-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+}
+
 /* [eo-block="powered-by"] {
     display: none !important;
 } */
+
+.meetup-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.meetup-list li {
+  display: flex;
+}
+
+.meetup-list a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+}
+
+.meetup-list a:hover,
+.meetup-list a:active {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(1px);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.meetup-list img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.meetup-list span {
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 600px) {
+  .meetup-list {
+    grid-template-columns: 1fr;
+  }
+}
 
 .newsletter-section {
   text-align: center;
