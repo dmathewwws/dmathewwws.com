@@ -5,6 +5,7 @@ date: "2025-11-25"
 author: "Daniel Mathews"
 author_image: "https://ax0.taddy.org/blog/about-us/danny-small-profile-pic.png"
 author_url: "https://bsky.app/profile/dmathewwws.com"
+app_id: "6753969350"
 ---
 
 # Antler - An IRL Browser

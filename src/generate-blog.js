@@ -88,7 +88,8 @@ async function processMarkdownFile(filePath) {
     description: data.description || '',
     author: data.author || '',
     author_image: data.author_image || '',
-    author_url: data.author_url || ''
+    author_url: data.author_url || '',
+    app_banner: data.app_id ? `<meta name="apple-itunes-app" content="app-id=${data.app_id}">` : ''
   };
 }
 
