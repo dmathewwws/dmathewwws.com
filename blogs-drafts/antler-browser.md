@@ -124,7 +124,7 @@ It also means if you are a developer, and:
 
 Your users don’t actually need to download Antler or any mobile app. Here is a client side package [`irl-browser-onboarding`](https://github.com/antler-browser/irl-browser-onboarding) that you can add to your website that takes advantage of Antler being built on an open specification to create a Temporary / One Time account.
 
-The package checks if your mini app is being viewed inside a IRL Browser, and if not, creates an onboarding flow where a user enters their name, social links, and avatar and injects the same `window.irlBrowser` API that Antler or any IRL Browser would. This means if users want they can use Antler and get the immediate login UX and a persistent profile, or they can create a one-time / temporary profile if don’t.
+The package checks if your mini app is being viewed inside a IRL Browser, and if not, creates an onboarding flow where a user enters their name, social links, and avatar and injects the same `window.irlBrowser` API that Antler or any IRL Browser would. This means if users want they can use Antler and get the immediate login UX and a persistent profile, or they can create a one-time / temporary profile if they don’t.
 
 ## Example Apps
 
