@@ -144,7 +144,7 @@ Here are some example use cases:
 
 ## Branding
 
-One idea while building this is how do I give a visual cue that when you see a QR code, you know it has instant login if you use an IRL Browser, this is what I came up with and what inspired the name of the app.
+An interesting idea that came up while building this was to create a visual cue so a user knows if you scan this QR code it offers instant login. Antlers was what I came up with, and it inspired the app's name.
 
 ![antler-branding.png](https://ax0.taddy.org/dmathewwws/antler-branding.png)
 
