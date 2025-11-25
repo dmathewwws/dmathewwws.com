@@ -4,7 +4,7 @@
 
 // Print a message in the browser's dev tools console each time the page loads
 // Use your menus or right-click / control-click and choose "Inspect" > "Console"
-console.log("Hello 🌎");
+console.log("Hello Hacker!");
 
 /* 
 Make the "Click me!" button move when the visitor clicks it:
@@ -20,11 +20,11 @@ if (btn) { // Detect clicks on the button
 
 // Array of profile picture URLs
 const profilePics = [
-  "https://cdn.glitch.global/19129de7-9e65-4c13-b8ab-f21bd83e6c81/daniel-profile-pic.jpg",
-  "https://cdn.glitch.global/19129de7-9e65-4c13-b8ab-f21bd83e6c81/hidden-profile-pic.jpg",
-  "https://cdn.glitch.global/19129de7-9e65-4c13-b8ab-f21bd83e6c81/dan_3.jpg",
-  "https://cdn.glitch.global/19129de7-9e65-4c13-b8ab-f21bd83e6c81/dan_4.jpg",
-  "https://cdn.glitch.global/19129de7-9e65-4c13-b8ab-f21bd83e6c81/dan_5.jpg",
+  "https://ax0.taddy.org/dmathewwws/daniel-profile-pic.jpg",
+  "https://ax0.taddy.org/dmathewwws/daniel-profile-pic-2.jpg",
+  "https://ax0.taddy.org/dmathewwws/daniel-profile-pic-3.jpg",
+  "https://ax0.taddy.org/dmathewwws/daniel-profile-pic-4.jpg",
+  "https://ax0.taddy.org/dmathewwws/daniel-profile-pic-5.jpg",
 ];
 
 // Get the profile picture element
