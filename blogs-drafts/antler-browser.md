@@ -22,7 +22,7 @@ However, that checkin app is just one example of a lightweight mini app, any dev
 
 In both cases, a user scans a QR code and instantly gets logged in. Moreover, no servers were needed to make this happen.
 
-Antler is an iOS or Android app that users download. However, what makes Antler interesting is that it uses an open-specification called the [IRL Browser Specification](https://antlerbrowser.com/open-specification). This spec is an attempt to answer the question: **Can we build a mini app platform on open web standards?**
+Antler is an iOS or Android app that users download. However, what makes Antler interesting is that it uses an open-specification called the [IRL Browser Specification](https://antlerbrowser.com/irl-browser-specification). This spec is an attempt to answer the question: **Can we build a mini app platform on open web standards?**
 
 In a future where this specification is adopted, you can scan a QR at a coffee shop, concert, or conference → You instantly access the experience. No downloads. No signups. 
 
@@ -164,7 +164,7 @@ An interesting idea that came up while building this was to create a visual cue 
 
 [Feathers Auth](https://feathers.dev/auth/docs): One of the inspirations behind Antler. The first time I saw a working demo of local-first auth was this [local-first chat app](https://github.com/DWebYVR/featherschat) built by [David](https://bsky.app/profile/daffl.xyz).
 
-[IRL Browser Specification](https://antlerbrowser.com/open-specification) - The specification for how IRL Browsers communicate with mini-apps through DIDs and JWTs.
+[IRL Browser Specification](https://antlerbrowser.com/irl-browser-specification) - The specification for how IRL Browsers communicate with mini-apps through DIDs and JWTs.
 
 [DID](https://www.w3.org/TR/did-1.0/) - W3C standard for identities. Right now Antler just supports the key method, but there are other methods we could integrate with.
 
