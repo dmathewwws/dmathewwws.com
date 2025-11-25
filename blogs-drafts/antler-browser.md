@@ -34,7 +34,7 @@ Currently, there are developer platforms that make it easier for developers to b
 - WhatsApp Business / WhatsApp Business API
 - iOS App Clips
 
-What makes it easier to build on these platforms is they take care of auth, payments and help make it easier to host or distribute of your app. 
+What makes it easier to build on these platforms is they take care of auth, payments and help make it easier to host / distribute your app. 
 
 Let's focus on WeChat. You might know it as a popular messaging app in China similar to WhatsApp or Telegram. But it's also called a super app because of all the useful mini apps you can use inside it. 
 
@@ -118,7 +118,7 @@ Being an open specification means anyone can create an alternative to Antler.
 It also means if you are a developer, and:
 
 - Want to add instant login via a QR code to your website, you know you are not locked into Antler or a closed platform.
-- Want to integrate mini apps into your current app. All the mini apps that work with Antler, will work inside your app (just follow the spec).
+- Want to integrate mini apps into your current app. All the mini apps that work with Antler will work inside your app (just follow the spec).
 
 ### Do your users have to download an app?
 
@@ -160,11 +160,11 @@ An interesting idea that came up while building this was to create a visual cue 
 
 ## **Useful Resources**
 
-[Scuttlebutt](https://scuttlebutt.nz/docs/protocol/) - If you care about the original idea of Antler, having a local internet just for your neighbourhood, the scuttlebutt project is a really fun way I've seen people try to achieve this.
+[Scuttlebutt](https://scuttlebutt.nz/docs/protocol/) - If you care about the original idea of Antler, having a local internet just for your neighbourhood, the Scuttlebutt project is a really fun way I've seen people try to achieve this.
 
 [Feathers Auth](https://feathers.dev/auth/docs): One of the inspirations behind Antler. The first time I saw a working demo of local-first auth was this [local-first chat app](https://github.com/DWebYVR/featherschat) built by [David](https://bsky.app/profile/daffl.xyz).
 
-[IRL Browser Specification](https://antlerbrowser.com/open-specification) - The specification for how IRL Browsers communicate with mini-apps through DIDs, and JWTs.
+[IRL Browser Specification](https://antlerbrowser.com/open-specification) - The specification for how IRL Browsers communicate with mini-apps through DIDs and JWTs.
 
 [DID](https://www.w3.org/TR/did-1.0/) - W3C standard for identities. Right now Antler just supports the key method, but there are other methods we could integrate with.
 
