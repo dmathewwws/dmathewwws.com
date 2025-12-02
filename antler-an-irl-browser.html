@@ -13,16 +13,16 @@
     <meta name="apple-itunes-app" content="app-id=6753969350">
 
     <!-- SEO Meta Tags -->
-    <title>Antler - An IRL Browser - Daniel Mathews</title>
+    <title>Can we build WeChat Mini Apps using open web standards? - Daniel Mathews</title>
     <meta name="description" content="A specification for building mini apps that work with QR codes and open web standards." />
     <meta name="author" content="Daniel Mathews" />
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Antler - An IRL Browser" />
+    <meta property="og:title" content="Can we build WeChat Mini Apps using open web standards?" />
     <meta property="og:description" content="A specification for building mini apps that work with QR codes and open web standards." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://dmathewwws.com/antler-an-irl-browser.html" />
-    <meta property="article:published_time" content="2025-11-25" />
+    <meta property="article:published_time" content="2025-12-02" />
     <meta property="article:author" content="https://bsky.app/profile/dmathewwws.com" />
     
     <link rel="stylesheet" href="style.css" />
@@ -35,34 +35,29 @@
       </nav>
       <article class="blog-content">
         <header class="blog-header">
-          <h1>Antler - An IRL Browser</h1>
+          <h1>Can we build WeChat Mini Apps using open web standards?</h1>
         </header>
         <div class="blog-body">
-          <p>Hey! I launched an app called <a href="https://antlerbrowser.com" target="_blank" rel="noopener noreferrer">Antler</a>. </p>
-<p>Antler started as a simple idea: A local internet just for my neighbourhood. However, the idea morphed into something a bit more practical: an open-source tool that helps developers build lightweight apps when <strong>you know your users will be at a specific location.</strong></p>
-<p>Here is a demo of Antler in action, I scan a QR code and immediately get checked into my co-working space.</p>
-<p><video src="https://ax0.taddy.org/dmathewwws/antler-demo.mp4" controls width="100%" autoplay muted loop></video></p>
-<p>However, that checkin app is just one example of a lightweight mini app, any developer can build their own mini app. For example, <a href="https://drawing.dmathewwws.com">draw-on-my-phone</a> is a game where a group of friends scan a QR code to enter a game room and take turns drawing on each other&#39;s phones (similar to Telestrations or Garlic Phone)</p>
-<p>In both cases, a user scans a QR code and instantly gets logged in. Moreover, no servers were needed to make this happen.</p>
-<p>Antler is an iOS or Android app that users download. However, what makes Antler interesting is that it uses an open-specification called the <a href="https://antlerbrowser.com/irl-browser-specification" target="_blank" rel="noopener noreferrer">IRL Browser Specification</a>. This spec is an attempt to answer the question: <strong>Can we build a mini app platform on open web standards?</strong></p>
-<p>In a future where this specification is adopted, you can scan a QR at a coffee shop, concert, or conference → You instantly access the experience. No downloads. No signups. </p>
-<h2>WeChat Mini Apps</h2>
-<p>Currently, there are developer platforms that make it easier for developers to build lightweight mini apps:</p>
-<ul>
-<li>WeChat Mini Apps</li>
-<li>WhatsApp Business / WhatsApp Business API</li>
-<li>iOS App Clips</li>
-</ul>
-<p>What makes it easier to build on these platforms is they take care of auth, payments and help make it easier to host / distribute your app. </p>
-<p>Let&#39;s focus on WeChat. You might know it as a popular messaging app in China similar to WhatsApp or Telegram. But it&#39;s also called a super app because of all the useful mini apps you can use inside it. </p>
-<p>For example, if you wanted to rent a bike in Shanghai, just open WeChat and scan the QR code on a bike to unlock and start riding. Under the hood, the bike share company’s mini app gets downloaded and runs inside WeChat, your WeChat id is used for registration/verification with the bike sharing app and WeChat pay is used for payment after the ride is complete.</p>
+          <p>You might have heard of WeChat, it&#39;s a popular messaging app in China similar to WhatsApp or Telegram. In this deep dive, I&#39;m going to cover why WeChat Mini Apps are such a big deal in China, and showcase how we can build a similar experience using open web standards without relying on a super app like WeChat.</p>
+<p>WeChat isn&#39;t just a popular messaging app in China, it&#39;s practically unavoidable. Even <a href="https://www.scmp.com/lifestyle/travel-leisure/article/3230794/best-apps-foreign-visitors-china-and-which-are-useless-google-maps" target="_blank" rel="noopener noreferrer">tourists are advised to download it</a> before visiting. WeChat allows users to access a wide variety of services like food delivery, ride hailing, bike rentals, and more without leaving the app. This is why WeChat is called a &quot;super app&quot;.</p>
+<p>For example, if you wanted to rent a bike in Shanghai, just open WeChat and scan the QR code on the bike to unlock and start riding (no downloads, no signups). Under the hood, the bike service&#39;s mini app is downloaded but runs inside WeChat. Your WeChat ID is used for registration/verification and WeChat Pay is used for payment after the ride is complete.</p>
 <p><img src="https://ax0.taddy.org/dmathewwws/wechat-bike-share.png" alt="wechat-bike-share.png"></p>
 <p>WeChat Mini apps proved out a really important use case in the Chinese market: You don’t always need a native app. Sometimes the better experience is to just scan a QR code.</p>
+<p>However, outside China, while we have popular apps, we don&#39;t have a super app like WeChat. On one hand, we are missing out on the convenience of having a mini app ecosystem with instant login / payments. On the other hand, I don&#39;t think we would or should pick one company to become our WeChat. </p>
+<p>So, the question is: <strong>Can we have a similar user experience to WeChat mini apps without relying on a super app like WeChat?</strong> Yes! We can do this by using regular QR codes and open web standards.</p>
+<h2>Quick Demo</h2>
+<p>I built a demo app called <a href="https://antlerbrowser.com" target="_blank" rel="noopener noreferrer">Antler</a>. When I open up Antler and scan a QR code, I immediately get checked into my co-working space.</p>
+<p><video src="https://ax0.taddy.org/dmathewwws/antler-demo.mp4" controls width="100%" autoplay muted loop></video></p>
+<p>What&#39;s interesting is that:</p>
+<ol>
+<li>No servers are needed to make this happen</li>
+<li>Antler uses an open-specification called the <a href="https://antlerbrowser.com/irl-browser-specification" target="_blank" rel="noopener noreferrer">IRL Browser Specification</a>, which means anyone can build this into their app.</li>
+</ol>
 <h2>How Antler Works</h2>
-<p>Antler’s goal is to give the same great UX experience from WeChat mini apps, using regular QR codes + open web standards + an open specification used for communication. What makes Antler unique to WeChat is there is no central Antler server that is used for auth. This is how it works:</p>
+<p>What makes Antler unique to WeChat is there is no central Antler server that is used for auth. This is how it works:</p>
 <p><img src="https://ax0.taddy.org/dmathewwws/antler-how-it-works.png" alt="antler-how-it-works.png"></p>
 <p>When a user downloads Antler, they create a profile that is stored locally on their device.</p>
-<p>A profile contains: </p>
+<p>A profile contains:</p>
 <ul>
 <li>a <a href="https://www.w3.org/TR/did-1.0/" target="_blank" rel="noopener noreferrer">DID</a> (a W3C standard for identity) - a public key</li>
 <li>a private key</li>
@@ -70,9 +65,9 @@
 <li>link to socials (optional)</li>
 <li>an avatar (optional)</li>
 </ul>
-<p>When a user scans a QR code, Antler opens your website inside a WebView and injects a <code>window.irlBrowser</code> object.</p>
-<p>The <code>window</code> object is available on all browsers, and as a developer it gives you access to useful browser features. For example, <code>window.location</code> lets you know the current url you are visiting in the browser. We made up a new property called <code>window.irlBrowser</code> and use it as an interface to communicate between the Antler app and your website.</p>
-<p>Your website calls <code>window.irlBrowser.getProfileDetails()</code>  and gets back cryptographically signed profile data as a JWT.</p>
+<p>When a user scans a QR code, Antler opens your website (mini app) inside a WebView and injects a <code>window.irlBrowser</code> object.</p>
+<p>The <code>window</code> object is available on all browsers and gives developers access to useful browser features. For example, <code>window.location</code> lets you know the current url you are visiting in the browser. We created a new property called <code>window.irlBrowser</code> and use it as an interface to communicate between the Antler app and your mini app.</p>
+<p>Your mini app calls <code>window.irlBrowser.getProfileDetails()</code> and gets back cryptographically signed profile data as a JWT.</p>
 <pre><code class="language-json">{
   &quot;iss&quot;: &quot;did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK&quot;,
   &quot;aud&quot;: &quot;https://yourdomain.com&quot;,
@@ -88,11 +83,40 @@
 }
 </code></pre>
 <p>You should decode and verify that the public key in the <code>iss</code> field was used to sign this data. This way you know only someone with the private key for this DID could have sent it.</p>
-<p>And voila, the user is instantly logged into your website. Profile details that were stored locally on the user’s device are shared to your website and no servers were involved! </p>
-<p><img src="https://ax0.taddy.org/dmathewwws/wechat-antler-comparison.png" alt="wechat-antler-comparison.png"></p>
+<p>And voila, the user is instantly logged into your mini app. Profile details that were stored locally on the user’s device are shared to your mini app and no servers were involved!</p>
+<h2>Long Term Vision</h2>
+<p>Using an open specification means anyone can integrate this mini apps ecosystem into their app (i.e., any app that already has a user&#39;s profile) can be a &quot;host app&quot; for mini apps. Moreover, any developer can build a mini app that is compatible with any host app.</p>
+<p><img src="https://ax0.taddy.org/dmathewwws/irl-browser-vision-4.png" alt="irl-browser-vision.png"></p>
+<p>As a developer, building a mini app should be a lot easier to build than a native app. I hope this encourages developers to build apps that we would not be practical to build a native app for ie) building an app for my social clubs, local community events, venues, pop-ups, game nights with friends, or any lightweight gathering where people are physically present.</p>
+<p>Here are some example mini apps that you can build:</p>
+<ul>
+<li>Networking<ul>
+<li>eg) <a href="https://zspace.dmathewwws.com">Check into event app</a>. Code: <a href="https://github.com/antler-browser/meetup-cloudflare" target="_blank" rel="noopener noreferrer">https://github.com/antler-browser/meetup-cloudflare</a></li>
+</ul>
+</li>
+<li>IRL Games with friends<ul>
+<li>eg) <a href="https://drawing.dmathewwws.com">Draw on my phone IRL game</a>. Code: <a href="https://github.com/antler-browser/draw-on-my-phone-game" target="_blank" rel="noopener noreferrer">https://github.com/antler-browser/draw-on-my-phone-game</a></li>
+<li>Scavenger Hunts (go around looking for QR codes)</li>
+</ul>
+</li>
+<li>Business Applications:<ul>
+<li>Loyalty Program for a coffee shop (you shouldn’t have to download a different app for every coffee shop)</li>
+</ul>
+</li>
+<li>Community Building / Neighbourhood Projects<ul>
+<li>eg) Relational Tech Project: <a href="https://relationaltechproject.org/remix" target="_blank" rel="noopener noreferrer">https://relationaltechproject.org/remix</a></li>
+</ul>
+</li>
+<li>Interactive Arts Projects</li>
+</ul>
+<p>Lastly, in a future where this specification is adopted by multiple host apps, a user can choose which app they want to use to scan a QR code and scan a QR code at a coffee shop, concert, or conference → You instantly access the experience. No downloads. No signups.</p>
+<h2>Do users have to download an app to use mini apps?</h2>
+<p>When demoing Antler to some friends, I noticed some of them were hesitant to download another app on their phone. We can take advantage of the IRL Browser Specification being an open specification to create a temporary / one time account that doesn&#39;t require an app to be downloaded.</p>
+<p>Here is a client side package <a href="https://github.com/antler-browser/irl-browser-onboarding" target="_blank" rel="noopener noreferrer"><code>irl-browser-onboarding</code></a> that you can add to your mini app. The package checks if your mini app is being viewed inside an app that uses the IRL Browser Specification, and if not, creates an onboarding flow and injects those details into the <code>window.irlBrowser</code> API that Antler or any IRL Browser would. </p>
+<p>This means if users doesn&#39;t want to download an app, they can create a one-time / temporary profile just for your mini app, but if they download a host app, they get an immediate login UX and a persistent profile they can use across all mini apps.</p>
 <h2>Open Source</h2>
 <p>Antler is <a href="https://github.com/antler-browser/antler" target="_blank" rel="noopener noreferrer">open-source</a>. It&#39;s a simple React Native app that stores user profiles and public / private key pairs.</p>
-<p>Antler uses an <a href="https://antlerbrowser.com/irl-browser-standard.html" target="_blank" rel="noopener noreferrer">open specification</a> to pass data between your website and the mobile app. These are the five functions that are defined in the spec.</p>
+<p>Antler uses an <a href="https://antlerbrowser.com/irl-browser-standard.html" target="_blank" rel="noopener noreferrer">open specification</a> to pass data between your mini app and the mobile app. These are the five functions that are defined in the spec.</p>
 <pre><code class="language-tsx">interface IRLBrowser {
   // Get profile details (name, socials)
   getProfileDetails(): Promise&lt;string&gt;;
@@ -110,79 +134,35 @@
   close(): void;
 }
 </code></pre>
-<p>Being an open specification means anyone can create an alternative to Antler. </p>
-<p>It also means if you are a developer, and:</p>
-<ul>
-<li>Want to add instant login via a QR code to your website, you know you are not locked into Antler or a closed platform.</li>
-<li>Want to integrate mini apps into your current app. All the mini apps that work with Antler will work inside your app (just follow the spec).</li>
-</ul>
-<h3>Do your users have to download an app?</h3>
-<p>Your users don’t actually need to download Antler or any mobile app. Here is a client side package <a href="https://github.com/antler-browser/irl-browser-onboarding" target="_blank" rel="noopener noreferrer"><code>irl-browser-onboarding</code></a> that you can add to your website that takes advantage of Antler being built on an open specification to create a Temporary / One Time account.</p>
-<p>The package checks if your mini app is being viewed inside a IRL Browser, and if not, creates an onboarding flow where a user enters their name, social links, and avatar and injects the same <code>window.irlBrowser</code> API that Antler or any IRL Browser would. This means if users want they can use Antler and get the immediate login UX and a persistent profile, or they can create a one-time / temporary profile if they don’t.</p>
-<h2>Example Apps</h2>
-<p>My hope with IRL Browser mini apps is that it encourages developers like me to build apps that we would have never thought would be feasible to build a native app for ie) building an app for my social clubs, local community events, venues, pop-ups, game nights with friends, or any lightweight gathering where people are physically present.</p>
-<p>Here are some example use cases:</p>
-<ul>
-<li>Networking<ul>
-<li><a href="https://github.com/antler-browser/meetup-cloudflare" target="_blank" rel="noopener noreferrer">Check into event app</a> (Demo: <a href="https://zspace.dmathewwws.com">https://zspace.dmathewwws.com</a>)</li>
-</ul>
-</li>
-<li>IRL Games with friends<ul>
-<li><a href="https://github.com/antler-browser/draw-on-my-phone-game" target="_blank" rel="noopener noreferrer">Draw on my phone IRL game</a> (Demo: <a href="https://drawing.dmathewwws.com">https://drawing.dmathewwws.com</a>)</li>
-</ul>
-</li>
-<li>Business Applications:<ul>
-<li>Loyalty Program for a coffee shop (you shouldn’t have to download a different app for every coffee shop)</li>
-</ul>
-</li>
-<li>Interactive Arts Projects</li>
-<li>Community Building / Neighbourhood Projects<ul>
-<li>ex) Relational Tech Project: <a href="https://relationaltechproject.org/remix" target="_blank" rel="noopener noreferrer">https://relationaltechproject.org/remix</a></li>
-</ul>
-</li>
-<li>Hopefully even more</li>
-</ul>
-<h2>Branding</h2>
-<p>An interesting idea that came up while building this was to create a visual cue so a user knows if you scan this QR code it offers instant login. Antlers was what I came up with, and it inspired the app&#39;s name.</p>
-<p><img src="https://ax0.taddy.org/dmathewwws/antler-branding.png" alt="antler-branding.png"></p>
-<h2>Future Roadmap For Antler</h2>
-<ul>
-<li>Add NFC (doesn&#39;t have to be just QR codes)</li>
-<li>Add Incognito Mode</li>
-<li>Add more DID Methods, Add Verifiable Credentials.</li>
-<li>Pass through more native capabilities to mini apps (with explicit user permission)<ul>
-<li>Location</li>
-<li>Push Notifications</li>
-</ul>
-</li>
-</ul>
+<p>Being an open specification means anyone can integrate this mini apps ecosystem into their app. i.e) any app can be a host app and all the mini apps that work with Antler will work inside your app (just follow the spec).</p>
 <h2><strong>Useful Resources</strong></h2>
-<p><a href="https://scuttlebutt.nz/docs/protocol/" target="_blank" rel="noopener noreferrer">Scuttlebutt</a> - If you care about the original idea of Antler, having a local internet just for your neighbourhood, the Scuttlebutt project is a really fun way I&#39;ve seen people try to achieve this.</p>
 <p><a href="https://feathers.dev/auth/docs" target="_blank" rel="noopener noreferrer">Feathers Auth</a>: One of the inspirations behind Antler. The first time I saw a working demo of local-first auth was this <a href="https://github.com/DWebYVR/featherschat" target="_blank" rel="noopener noreferrer">local-first chat app</a> built by <a href="https://bsky.app/profile/daffl.xyz" target="_blank" rel="noopener noreferrer">David</a>.</p>
 <p><a href="https://antlerbrowser.com/irl-browser-specification" target="_blank" rel="noopener noreferrer">IRL Browser Specification</a> - The specification for how IRL Browsers communicate with mini-apps through DIDs and JWTs.</p>
 <p><a href="https://www.w3.org/TR/did-1.0/" target="_blank" rel="noopener noreferrer">DID</a> - W3C standard for identities. Right now Antler just supports the key method, but there are other methods we could integrate with.</p>
-<p><a href="https://www.w3.org/TR/vc-data-model-2.0/" target="_blank" rel="noopener noreferrer">Verifiable Credentials</a> - W3C standard that works with DIDs. It allows you to verify something is true without revealing unnecessary data ex) you could prove you own a ticket to a concert </p>
-<p><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/code.html" target="_blank" rel="noopener noreferrer">WeChat MiniApps Docs</a> (in Chinese - but your browser can translate it for  you) </p>
+<p><a href="https://www.w3.org/TR/vc-data-model-2.0/" target="_blank" rel="noopener noreferrer">Verifiable Credentials</a> - W3C standard that works with DIDs. It allows you to verify something is true without revealing unnecessary data ex) you could prove you own a ticket to a concert</p>
+<p><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/code.html" target="_blank" rel="noopener noreferrer">WeChat MiniApps Docs</a> (in Chinese - but your browser can translate it for  you)</p>
 <p><a href="https://www.w3.org/TR/mini-app-white-paper/" target="_blank" rel="noopener noreferrer">MiniApps Standard</a> - A W3C Draft by competitors of WeChat (Alibaba, Baidu, Xiaomi) to create a standard for MiniApps that isn&#39;t tied to WeChat. A great way to deep dive into the architecture behind MiniApps.</p>
-<p><a href="https://www.wechatwiki.com/wp-content/uploads/wechat-mini-program-light-app-report-fabernovel-31ten.pdf" target="_blank" rel="noopener noreferrer">WeChat Strategy Doc</a>: A 326 page pdf on the different ways companies are using Mini Apps. It&#39;s a great resource.</p>
-<p><a href="https://newsletter.theindianotes.com/p/whatsapp-owns-india" target="_blank" rel="noopener noreferrer">How Businesses in India Use WhatsApp</a>: A in-depth blog on how businesses in India use WhatsApp.</p>
+<p><a href="https://www.wechatwiki.com/wp-content/uploads/wechat-mini-program-light-app-report-fabernovel-31ten.pdf" target="_blank" rel="noopener noreferrer">WeChat Strategy Doc</a>: A 326 page pdf on the different ways companies are using WeChat. It&#39;s a great resource.</p>
+<p><a href="https://newsletter.theindianotes.com/p/whatsapp-owns-india" target="_blank" rel="noopener noreferrer">How Businesses in India Use WhatsApp</a>: A in-depth blog on how businesses in India use WhatsApp. The closest thing to a super app outside of China.</p>
 <p><a href="https://miniapps.farcaster.xyz" target="_blank" rel="noopener noreferrer">Farcaster Mini Apps</a> - Similar concept to WeChat MiniApps but integrated into the Farcaster social network. It implements a similar specification to IRL Browser ie) uses a WebView to communicate with mini apps and their app and mini apps are built with standard HTML, CSS, and Javascript.</p>
-<p><a href="https://webxdc.org/docs/get_started.html" target="_blank" rel="noopener noreferrer">WebXDC</a> - A similar specification to IRL Browser as well. Focused on chat apps that want to integrate a mini app experience into their chat app. </p>
+<p><a href="https://webxdc.org/docs/get_started.html" target="_blank" rel="noopener noreferrer">WebXDC</a> - A similar specification to IRL Browser as well. Focused on chat apps that want to integrate a mini app experience into their chat app.</p>
 <h2>Next Steps</h2>
-<p>Thanks for taking the time to read this deep dive! </p>
+<p>Thanks for taking the time to read this deep dive!</p>
 <p>If you are a developer and:</p>
 <ul>
 <li>Want to explore what building a mini-app looks like, check out these <a href="https://antlerbrowser.com/open-source" target="_blank" rel="noopener noreferrer">open-source mini apps</a>.</li>
 <li>Have already built a chat / social app and want to integrate Mini Apps into your app, check out the <a href="https://antlerbrowser.com/irl-browser-specification" target="_blank" rel="noopener noreferrer">IRL Browser specification</a>.</li>
 <li>Want to chat? <a href="https://discord.gg/ksewAwnGsN" target="_blank" rel="noopener noreferrer">Join our Discord</a></li>
 </ul>
+<p>And I want to leave you with this graphic that compares WeChat Mini Apps vs using open web standards to build mini apps.</p>
+<p><img src="https://ax0.taddy.org/dmathewwws/wechat-antler-comparison.png" alt="wechat-antler-comparison.png"></p>
 
         </div>
         <footer class="author-info">
           <img src="https://ax0.taddy.org/blog/about-us/danny-small-profile-pic.png" alt="Daniel Mathews" />
           <div class="author-details">
             <p class="author-name"><a href="https://bsky.app/profile/dmathewwws.com" target="_blank">Daniel Mathews</a></p>
-            <p class="post-date">Written on November 24, 2025</p>
+            <p class="post-date">Written on December 2, 2025</p>
           </div>
         </footer>
       </article>

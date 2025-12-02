@@ -4,7 +4,7 @@
   margin: 0 auto;
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  line-height: 1.6;
+  line-height: 1.5;
   color: #37352f;
 }
 
@@ -14,12 +14,12 @@ body {
 }
 
 .blog-nav {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 /* Add top margin when nav appears after article */
 article + .blog-nav {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 .back-home {
@@ -33,7 +33,7 @@ article + .blog-nav {
 }
 
 .blog-header {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .blog-header h1 {
@@ -54,7 +54,7 @@ article + .blog-nav {
 
 .blog-body h2 {
   font-size: 1.8rem;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   margin-bottom: 1rem;
   font-weight: 600;
   color: #37352f;
@@ -62,13 +62,13 @@ article + .blog-nav {
 
 .blog-body h3 {
   font-size: 1.4rem;
-  margin-top: 2rem;
+  margin-top: 1.6rem;
   margin-bottom: 0.8rem;
   font-weight: 600;
 }
 
 .blog-body p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .blog-body a {
@@ -103,18 +103,24 @@ article + .blog-nav {
 }
 
 .blog-body ul, .blog-body ol {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   padding-left: 1.5rem;
 }
 
 .blog-body li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.blog-body li > ul,
+.blog-body li > ol {
+  margin-bottom: 0;
+  margin-top: 0.3rem;
 }
 
 .blog-body img {
   max-width: 100%;
   height: auto;
-  margin: 2rem 0;
+  margin: 0.5rem 0;
   border-radius: 4px;
 }
 

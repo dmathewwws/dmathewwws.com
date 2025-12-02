@@ -53,7 +53,8 @@ function formatDate(date) {
   return new Date(date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
+    timeZone: 'UTC'
   });
 }
 
@@ -68,7 +69,8 @@ async function processMarkdownFile(filePath) {
   // Get date from frontmatter or file stats
   const stats = await fs.stat(filePath);
   const date = data.date ? new Date(data.date) : stats.mtime;
-  const dateStr = date.toISOString().split('T')[0];
+  // Use the original date string if available, otherwise convert to ISO
+  const dateStr = data.date || date.toISOString().split('T')[0];
   
   // Remove the first h1 title since we'll use the frontmatter title
   const contentWithoutTitle = content.replace(/^#\s+.*$/m, '').trim();
@@ -84,7 +86,7 @@ async function processMarkdownFile(filePath) {
     date: dateStr,
     formatted_date: formatDate(date),
     content: htmlContent,
-    slug: slugify(title),
+    slug: data['url-slug'] || slugify(title),
     description: data.description || '',
     author: data.author || '',
     author_image: data.author_image || '',
