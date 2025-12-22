@@ -58,6 +58,51 @@ function formatDate(date) {
   });
 }
 
+// Helper function to format date as RFC 822 for RSS
+function formatRFC822Date(date) {
+  return new Date(date).toUTCString();
+}
+
+// Helper function to escape XML special characters
+function escapeXml(text) {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+// Generate RSS feed from blog posts
+function generateRSSFeed(blogPosts) {
+  const siteUrl = 'https://dmathewwws.com';
+  const feedTitle = 'Daniel Mathews Blog';
+  const feedDescription = 'Thoughts on building apps, indie development, and the decentralized web.';
+
+  const items = blogPosts.map(post => `    <item>
+      <title>${escapeXml(post.title)}</title>
+      <link>${siteUrl}/${post.slug}</link>
+      <description>${escapeXml(post.description)}</description>
+      <pubDate>${formatRFC822Date(post.date)}</pubDate>
+      <guid isPermaLink="true">${siteUrl}/${post.slug}</guid>
+      <author>dannyl.mathews@gmail.com (${escapeXml(post.author)})</author>
+    </item>`).join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${feedTitle}</title>
+    <link>${siteUrl}</link>
+    <description>${feedDescription}</description>
+    <language>en-us</language>
+    <lastBuildDate>${formatRFC822Date(new Date())}</lastBuildDate>
+    <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>
+${items}
+  </channel>
+</rss>
+`;
+}
+
 // Process a markdown file and extract its metadata and content
 async function processMarkdownFile(filePath) {
   const fileContent = await fs.readFile(filePath, 'utf8');
@@ -128,7 +173,11 @@ async function generateBlogPages() {
     
     // Sort blog posts by date (newest first)
     blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
-    
+
+    // Generate RSS feed
+    const rssFeed = generateRSSFeed(blogPosts);
+    await fs.writeFile(path.join(__dirname, '..', 'feed.xml'), rssFeed);
+
     // Move all generated files to root directory
     const generatedFiles = await fs.readdir(path.join(__dirname, '..', 'blogs-generated'));
     for (const file of generatedFiles) {
@@ -140,7 +189,7 @@ async function generateBlogPages() {
     // Remove the blogs-generated directory
     await fs.rmdir(path.join(__dirname, '..', 'blogs-generated'));
     
-    console.log(`Generated ${blogPosts.length} blog posts and moved them to root directory`);
+    console.log(`Generated ${blogPosts.length} blog posts, RSS feed, and moved them to root directory`);
   } catch (error) {
     console.error('Error generating blog pages:', error);
   }

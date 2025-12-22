@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Daniel Mathews Blog</title>
+    <link>https://dmathewwws.com</link>
+    <description>Thoughts on building apps, indie development, and the decentralized web.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Dec 2025 19:56:51 GMT</lastBuildDate>
+    <atom:link href="https://dmathewwws.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Can we build WeChat Mini Apps using open web standards?</title>
+      <link>https://dmathewwws.com/antler-an-irl-browser</link>
+      <description>A specification for building mini apps that work with QR codes and open web standards.</description>
+      <pubDate>Tue, 02 Dec 2025 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://dmathewwws.com/antler-an-irl-browser</guid>
+      <author>dannyl.mathews@gmail.com (Daniel Mathews)</author>
+    </item>
+    <item>
+      <title>Should I rebuild my app on Bluesky&apos;s AT Protocol?</title>
+      <link>https://dmathewwws.com/should-i-rebuild-my-app-on-blueskys-at-protocol</link>
+      <description>I&apos;m an indie developer weighing the pros and cons of rebuilding my app on Bluesky&apos;s AT Protocol.</description>
+      <pubDate>Wed, 04 Dec 2024 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://dmathewwws.com/should-i-rebuild-my-app-on-blueskys-at-protocol</guid>
+      <author>dannyl.mathews@gmail.com (Daniel Mathews)</author>
+    </item>
+  </channel>
+</rss>
