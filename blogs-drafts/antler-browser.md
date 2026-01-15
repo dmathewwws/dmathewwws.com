@@ -1,8 +1,8 @@
 ---
 title: "Can we build WeChat Mini Apps using open web standards?"
-url-slug: "antler-an-irl-browser"
+url-slug: "local-first-mini-apps-specification"
 description: "A specification for building mini apps that work with QR codes and open web standards."
-date: "2025-12-02"
+date: "2026-01-15"
 author: "Daniel Mathews"
 author_image: "https://ax0.taddy.org/blog/about-us/danny-small-profile-pic.png"
 author_url: "https://bsky.app/profile/dmathewwws.com"
@@ -31,7 +31,7 @@ I built a demo app called [Antler](https://antlerbrowser.com). When I open up An
 
 What's interesting is that:
   1) No servers are needed to make this happen
-  2) Antler uses an open-specification called the [IRL Browser Specification](https://antlerbrowser.com/irl-browser-specification), which means anyone can build this into their app. 
+  2) Antler uses an open-specification called the [Local First Auth Specification](https://antlerbrowser.com/local-first-auth-specification), which means anyone can build this into their app. 
 
 ## How Antler Works
 
@@ -49,11 +49,11 @@ A profile contains:
 - link to socials (optional)
 - an avatar (optional)
 
-When a user scans a QR code, Antler opens your website (mini app) inside a WebView and injects a `window.irlBrowser` object.
+When a user scans a QR code, Antler opens your website (mini app) inside a WebView and injects a `window.localFirstAuth` object.
 
-The `window` object is available on all browsers and gives developers access to useful browser features. For example, `window.location` lets you know the current url you are visiting in the browser. We created a new property called `window.irlBrowser` and use it as an interface to communicate between the Antler app and your mini app.
+The `window` object is available on all browsers and gives developers access to useful browser features. For example, `window.location` lets you know the current url you are visiting in the browser. We created a new property called `window.localFirstAuth` and use it as an interface to communicate between the Antler app and your mini app.
 
-Your mini app calls `window.irlBrowser.getProfileDetails()` and gets back cryptographically signed profile data as a JWT.
+Your mini app calls `window.localFirstAuth.getProfileDetails()` and gets back cryptographically signed profile data as a JWT.
 
 ```json
 {
@@ -61,13 +61,11 @@ Your mini app calls `window.irlBrowser.getProfileDetails()` and gets back crypto
   "aud": "https://yourdomain.com",
   "iat": 1728393600,
   "exp": 1728397200,
-  "type": "irl:profile:details",
-  "data": 
-    {
-      "did": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
-      "name": "Danny Mathews",
-      "socials": [{ "platform": "INSTAGRAM", "handle": "dmathewwws" }]
-    }
+  "data": {
+    "did": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+    "name": "Danny Mathews",
+    "socials": [{ "platform": "INSTAGRAM", "handle": "dmathewwws" }]
+  }
 }
 ```
 
@@ -77,7 +75,7 @@ And voila, the user is instantly logged into your mini app. Profile details that
 
 ## Long Term Vision
 
-Using an open specification means anyone can integrate this mini apps ecosystem into their app (i.e., any app that already has a user's profile) can be a "host app" for mini apps. Moreover, any developer can build a mini app that is compatible with any host app.
+Using an open specification means anyone can integrate this mini apps ecosystem into their app (i.e., any app that already has a user's profile) can be a Local First Auth app for mini apps. Moreover, any developer can build a mini app that is compatible with any Local First Auth app.
 
 ![irl-browser-vision.png](https://ax0.taddy.org/dmathewwws/irl-browser-vision-4.png)
 
@@ -96,48 +94,48 @@ Here are some example mini apps that you can build:
   - eg) Relational Tech Project: [https://relationaltechproject.org/remix](https://relationaltechproject.org/remix)
 - Interactive Arts Projects
 
-Lastly, in a future where this specification is adopted by multiple host apps, a user can choose which app they want to use to scan a QR code and scan a QR code at a coffee shop, concert, or conference → You instantly access the experience. No downloads. No signups.
+Lastly, in a future where this specification is adopted by multiple Local First Auth apps, a user can choose which app they want to use to scan a QR code and scan a QR code at a coffee shop, concert, or conference → You instantly access the experience. No downloads. No signups.
 
 ## Do users have to download an app to use mini apps?
 
-When demoing Antler to some friends, I noticed some of them were hesitant to download another app on their phone. We can take advantage of the IRL Browser Specification being an open specification to create a temporary / one time account that doesn't require an app to be downloaded.
+When demoing Antler to some friends, I noticed some of them were hesitant to download another app on their phone. We can take advantage of the Local First Auth Specification being an open specification to create a temporary / one time account that doesn't require an app to be downloaded.
 
-Here is a client side package [`irl-browser-onboarding`](https://github.com/antler-browser/irl-browser-onboarding) that you can add to your mini app. The package checks if your mini app is being viewed inside an app that uses the IRL Browser Specification, and if not, creates an onboarding flow and injects those details into the `window.irlBrowser` API that Antler or any IRL Browser would. 
+Here is a client side package [`local-first-auth`](https://github.com/antler-browser/local-first-auth) that you can add to your mini app. The package checks if your mini app is being viewed inside a Local First Auth app, and if not, creates an onboarding flow and injects those details into the `window.localFirstAuth` API that Antler or any Local First Auth app would. 
 
-This means if users doesn't want to download an app, they can create a one-time / temporary profile just for your mini app, but if they download a host app, they get an immediate login UX and a persistent profile they can use across all mini apps.
+This means if users doesn't want to download an app, they can create a one-time / temporary profile just for your mini app, but if they download a Local First Auth app, they get an immediate login UX and a persistent profile they can use across all mini apps.
 
 ## Open Source
 
 Antler is [open-source](https://github.com/antler-browser/antler). It's a simple React Native app that stores user profiles and public / private key pairs.
 
-Antler uses an [open specification](https://antlerbrowser.com/irl-browser-standard.html) to pass data between your mini app and the mobile app. These are the five functions that are defined in the spec.
+Antler uses an [open specification](https://antlerbrowser.com/local-first-auth-specification) to pass data between your mini app and the mobile app. These are the five functions that are defined in the spec.
 
 ```tsx
-interface IRLBrowser {
+interface LocalFirstAuth {
   // Get profile details (name, socials)
   getProfileDetails(): Promise<string>;
-  
+
   // Get avatar as base64-encoded string
   getAvatar(): Promise<string | null>;
-  
-  // Get details about the IRL Browser
-  getBrowserDetails(): BrowserDetails;
-  
+
+  // Get details about the Local First Auth app
+  getAppDetails(): AppDetails;
+
   // Request additional permissions (in the future)
   requestPermission(permission: string): Promise<boolean>;
-  
+
   // Close the WebView (return to QR scanner)
   close(): void;
 }
 ```
 
-Being an open specification means anyone can integrate this mini apps ecosystem into their app. i.e) any app can be a host app and all the mini apps that work with Antler will work inside your app (just follow the spec).
+Being an open specification means anyone can integrate this mini apps ecosystem into their app. i.e) any app can be a Local First Auth app and all the mini apps that work with Antler will work inside your app (just follow the spec).
 
 ## **Useful Resources**
 
 [Feathers Auth](https://feathers.dev/auth/docs): One of the inspirations behind Antler. The first time I saw a working demo of local-first auth was this [local-first chat app](https://github.com/DWebYVR/featherschat) built by [David](https://bsky.app/profile/daffl.xyz).
 
-[IRL Browser Specification](https://antlerbrowser.com/irl-browser-specification) - The specification for how IRL Browsers communicate with mini-apps through DIDs and JWTs.
+[Local First Auth Specification](https://antlerbrowser.com/local-first-auth-specification) - The specification for how Local First Auth apps communicate with mini-apps through DIDs and JWTs.
 
 [DID](https://www.w3.org/TR/did-1.0/) - W3C standard for identities. Right now Antler just supports the key method, but there are other methods we could integrate with.
 
@@ -151,9 +149,9 @@ Being an open specification means anyone can integrate this mini apps ecosystem 
 
 [How Businesses in India Use WhatsApp](https://newsletter.theindianotes.com/p/whatsapp-owns-india): A in-depth blog on how businesses in India use WhatsApp. The closest thing to a super app outside of China.
 
-[Farcaster Mini Apps](https://miniapps.farcaster.xyz) - Similar concept to WeChat MiniApps but integrated into the Farcaster social network. It implements a similar specification to IRL Browser ie) uses a WebView to communicate with mini apps and their app and mini apps are built with standard HTML, CSS, and Javascript.
+[Farcaster Mini Apps](https://miniapps.farcaster.xyz) - Similar concept to WeChat MiniApps but integrated into the Farcaster social network. It implements a similar specification to Local First Auth ie) uses a WebView to communicate with mini apps and their app and mini apps are built with standard HTML, CSS, and Javascript.
 
-[WebXDC](https://webxdc.org/docs/get_started.html) - A similar specification to IRL Browser as well. Focused on chat apps that want to integrate a mini app experience into their chat app.
+[WebXDC](https://webxdc.org/docs/get_started.html) - A similar specification to Local First Auth as well. Focused on chat apps that want to integrate a mini app experience into their chat app.
 
 ## Next Steps
 
@@ -162,7 +160,7 @@ Thanks for taking the time to read this deep dive!
 If you are a developer and:
 
 - Want to explore what building a mini-app looks like, check out these [open-source mini apps](https://antlerbrowser.com/open-source).
-- Have already built a chat / social app and want to integrate Mini Apps into your app, check out the [IRL Browser specification](https://antlerbrowser.com/irl-browser-specification).
+- Have already built a chat / social app and want to integrate Mini Apps into your app, check out the [Local First Auth specification](https://antlerbrowser.com/local-first-auth-specification).
 - Want to chat? [Join our Discord](https://discord.gg/ksewAwnGsN)
 
 And I want to leave you with this graphic that compares WeChat Mini Apps vs using open web standards to build mini apps.

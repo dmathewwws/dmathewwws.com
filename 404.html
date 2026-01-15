@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16x16.png">
+    <link rel="manifest" href="public/site.webmanifest">
+    <link rel="shortcut icon" href="public/favicon.ico">
+
+    <title>404 - Page Not Found | Daniel Mathews</title>
+    <meta name="description" content="The page you're looking for doesn't exist.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- The website stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .error-content {
+        text-align: center;
+        padding: 2rem;
+      }
+      .error-code {
+        font-size: 120px;
+        font-weight: 700;
+        color: var(--header-color);
+        line-height: 1;
+        margin: 0;
+      }
+      .error-message {
+        font-size: 1.5rem;
+        color: #333;
+        margin: 1rem 0 2rem;
+      }
+      .back-home {
+        display: inline-block;
+        color: var(--header-color);
+        font-weight: 500;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+      .back-home:hover {
+        color: #1a00cc;
+        transform: translateX(-4px);
+      }
+      .back-home::before {
+        content: "← ";
+      }
+      @media (max-width: 768px) {
+        .error-code {
+          font-size: 80px;
+        }
+        .error-message {
+          font-size: 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="content error-content" role="main">
+        <h1 class="error-code">404</h1>
+        <p class="error-message">Page not found</p>
+        <a href="/" class="back-home">Back to home</a>
+      </div>
+    </div>
+  </body>
+</html>

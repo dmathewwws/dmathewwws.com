@@ -5,14 +5,14 @@
     <link>https://dmathewwws.com</link>
     <description>Thoughts on building apps, indie development, and the decentralized web.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Jan 2026 00:03:14 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Jan 2026 19:23:52 GMT</lastBuildDate>
     <atom:link href="https://dmathewwws.com/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Can we build WeChat Mini Apps using open web standards?</title>
-      <link>https://dmathewwws.com/antler-an-irl-browser</link>
+      <link>https://dmathewwws.com/local-first-mini-apps-specification</link>
       <description>A specification for building mini apps that work with QR codes and open web standards.</description>
-      <pubDate>Tue, 02 Dec 2025 00:00:00 GMT</pubDate>
-      <guid isPermaLink="true">https://dmathewwws.com/antler-an-irl-browser</guid>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://dmathewwws.com/local-first-mini-apps-specification</guid>
       <author>dannyl.mathews@gmail.com (Daniel Mathews)</author>
     </item>
     <item>
