@@ -37,7 +37,7 @@ What's interesting is that:
 
 What makes Antler unique to WeChat is there is no central Antler server that is used for auth. This is how it works:
 
-![antler-how-it-works.png](https://ax0.taddy.org/dmathewwws/antler-how-it-works.png)
+![antler-how-it-works.png](https://ax0.taddy.org/antler/local-first-auth-workflow.png)
 
 When a user downloads Antler, they create a profile that is stored locally on their device.
 
